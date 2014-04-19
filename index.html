@@ -1,0 +1,45 @@
+<html>
+    <head>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+		<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    	<link rel="stylesheet" type="text/css" href="style.css">
+    	<title> #YRS2014 Countdown</title>
+       <script>
+var end = new Date('07/28/2014');
+
+    var _second = 1000;
+    var _minute = _second * 60;
+    var _hour = _minute * 60;
+    var _day = _hour * 24;
+    var timer;
+
+    function showRemaining() {
+        var now = new Date();
+        var distance = end - now;
+        if (distance < 0) {
+
+            clearInterval(timer);
+            document.getElementById('countdown').innerHTML = '#YRS2014 IS NOW UNDERWAY!!!!';
+
+            return;
+        }
+        var days = Math.floor(distance / _day);
+        var hours = Math.floor((distance % _day) / _hour);
+        var minutes = Math.floor((distance % _hour) / _minute);
+        var seconds = Math.floor((distance % _minute) / _second);
+
+        document.getElementById('countdown').innerHTML = days + ' days ';
+        document.getElementById('countdown').innerHTML += hours + ' hours <br> ';
+        document.getElementById('countdown').innerHTML += minutes + ' minutes <br> ';
+        document.getElementById('countdown').innerHTML += seconds + ' seconds <br> until <a href="http://www.youngrewiredstate.org"><strong>#YRS2014</strong></a>!!!';
+
+    }
+
+    timer = setInterval(showRemaining, 1000);
+</script>
+
+	</head>
+	<body>
+      <div id="countdown"></div>
+	</body>
+</html>
